@@ -38,6 +38,8 @@ def test_browser(project):
 
     login = project.find_element(By.XPATH, "//button[@type='submit']")
     login.click()
+
+    # wait for the next page to load if the login was successful
     WDW(project, 10).until(
         EC.presence_of_element_located((By.XPATH, "//a[@href='/report']"))
     )
